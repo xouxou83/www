@@ -1,0 +1,27 @@
+<?php
+
+/*
+ * Pages permettant de contacter le service info
+ */
+
+$repInclude = "./Include/";
+require($repInclude. '_initialisation.php');
+
+?>
+
+<form id="nousContacter" action="" method="post">
+	<label for="mon_id">
+		Chercher:
+		<input id="mon_id" type="text" />
+	</label>
+</form>
+
+
+
+
+
+
+
+
+
+?>

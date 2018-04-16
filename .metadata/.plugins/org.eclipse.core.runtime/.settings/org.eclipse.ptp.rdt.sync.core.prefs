@@ -1,0 +1,12 @@
+eclipse.preferences.version=1
+pattern/0/rule=-/.project
+pattern/1/rule=-/.cproject
+pattern/2/rule=-/.buildpath
+pattern/3/rule=-/.settings/
+pattern/4/rule=-coredir.[0-9]*/
+pattern/5/rule=-core
+pattern/6/rule=-\!core/
+pattern/7/rule=-core.[0-9]*
+pattern/8/rule=-\!core.[0-9]*/
+pattern/9/rule=-CVS/
+pattern/num-patterns=10

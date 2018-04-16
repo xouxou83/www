@@ -1,0 +1,44 @@
+<?php
+
+/**
+ *  Initialisation des ressources nécéssaires au fonctionnement
+ *  @package default
+ *  
+ */
+
+$repInclude = './Include/';
+
+require($repInclude .'_gestionBDD.lib.php');
+require($repInclude .'_gestionSession.lib.php');
+require($repInclude .'_gestionErreursEtUtilitaire.lib.php');
+
+/*
+ * Appel de la fonction permettant :
+ *   de limiter le temps de session
+ *   d'ouvrir une session
+ *   source: gestionBDD.lib.php
+ */
+configEtOuvertureSession();
+
+/*
+ * Creation du tableau d'enregistrement des erreurs:
+ */
+$tabErreurs = array();
+
+/*
+ * Systeme pour demande de deconnexion:
+ */
+$DeconnexionDemandee = lireDonneeUrl("cmdDeconnecter");
+if ( $DeconnexionDemandee == "on" )     {
+    deconnecter();
+    header("Location: identification.php");
+}
+
+/*
+ * Connexion a la base de donnees
+ */
+$idConnexion = connecterServeurBD();
+if ( !$idConnexion )    {
+    ajouterErreur($tabErr, $msg)
+}
+

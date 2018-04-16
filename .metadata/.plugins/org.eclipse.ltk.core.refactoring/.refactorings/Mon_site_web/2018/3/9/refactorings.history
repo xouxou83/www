@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Move &apos;EXAMPLE.php&apos; to &apos;Mon_site_web&apos;" description="Move &apos;EXAMPLE.php&apos; to &apos;Mon_site_web&apos;" destination="/Mon_site_web" element1="/GSB-New-App/EXAMPLE.php" flags="7" id="org.eclipse.ltk.core.refactoring.move.resources" resources="1" stamp="1520111442975" updateReferences="true"/>
+</session>

@@ -1,0 +1,105 @@
+<?php
+
+/*
+ * Librairie des fonctions pour le chat gsb et la gestion de la base de donnée (PDO)
+ * @ By x@ux@u
+ * 
+ *  Permet de demander conseil a un comptable disponible
+ */
+
+/**
+ * Fonction de connexion a la base de donnees GSB pour la messagerie
+ * @param none
+ * @return $idConnexionMessagerie          => Variable contenant les informations de connexion
+ */
+function connexionServeurMessagerie() {
+    $idConnexionMessagerie = new PDO('mysql:host=localhost;dbname=gsb-applifrais-messagerie', 'root', '');
+    return $idConnexionMessagerie;
+}
+
+
+/**
+ * Fonction afficher la boite de reception, chargement des differentes lignes depuis la base de donnees
+ * @param resource $idConnexionMessagerie         => Variable contenant les informations de connexion
+ * @return array $boiteReception          => Variable contenant les informations de la requete
+ */
+function ouvertureBoiteReception($idConnexionMessagerie)  {
+    $requete = "'SELECT (idmail, expediteur, piecejointe, objet, date) FROM boitereception ORDER BY 'date'";
+    filtrerChainePourBD($requete, $idConnexionMessagerie);
+    
+    $idConnexionMail = $idConnexionMessagerie -> prepare($requete);
+    $idConnexionMail = $idConnexionMessagerie -> exec($requete);
+    
+    $boiteReception = array();
+    $compteurDeLigne = 0;
+    while ($reponse = $idConnexionMail -> fetch(PDO::FETCH_ASSOC))   {
+        $compteurDeLigne++;        //$idMail, $expediteur, $pieceJointe, $objet, $date
+        $idMail = $reponse['idmail'];
+        ${"mail_" . $idMail} = array();
+        for ($nbChamps = 0; $nbChamps <= 3; $nbChamps++)   {
+            ${"mail_" . $idMail}['expediteur'] = $reponse['expediteur'];
+            ${"mail_" . $idMail}['piecejointe'] = $reponse['piecejointe'];
+            ${"mail_" . $idMail}['objet'] = $reponse['objet'];
+            ${"mail_" . $idMail}['date'] = $reponse['date'];
+            array_push($boiteReception, ${"mail_" . $idMail});
+        }
+    return $boiteReception;
+    } 
+}
+    //      ${"mail_expediteur_" . $idMail}
+    //      ${"skin" . $n};               => Creer un nom de variable
+    
+/**
+ * Fonction affichage d'un Email
+ * @param resource $idConnexionMessagerie         => Variable de ressources contenant les informations de connexion
+ * @param String $idMail                  => Variable de chaine de caractères contenant l'identifiant de l'E-mail a afficher
+ * @return resource $reponse              => Variable de ressources contenant les informations obtenue par la requete SQL
+ */
+function afficherMail($idMail, $idConnexionMessagerie)    {
+    $requete = "'SELECT (contenu, destinataire, copiecarbone) FROM boitereception WHERE idmail='".$idMail."'";
+    filtrerChainePourBD($requete, $idConnexionMessagerie);
+    $reponse = $idConnexionMessagerie -> query($requete);
+    return $reponse;
+}
+    
+    
+/**
+ * Fonction de filtrage des requetes pour la base de donnees
+ * @param resource $idConnexionMessagerie         => Variable contenant les informations de connexion
+ * @param String $requete                 => Variable de chaine de caractère contenant la requete SQL a echaper
+ * @return String $requete                => Variable de chaine de caractère contenant la requete SQL echapee
+ */
+function filtrerChainePourBD($str, $idConnexionMessagerie)  {
+    if ( ! get_magic_quotes_gpc() ) {
+        $idConnexionMessagerie -> quote($str);
+    }
+    return $str;
+}
+
+    
+/**
+ * Fonction pour l'envoie d'un nouvel Email
+ * @param resource $idConnexionMessagerie         => Variable contenant les informations de connexion
+ * @return resource $reponse              => Variable de ressources contenant les informations obtenue par la requete SQL
+ */
+function envoyerMail($idConnexionMessagerie)  {      //   INSERT INTO `boitereception` (`expediteur`, `destinataire`, `objet`, `date`, `piecejointe`) VALUES ('20fev18-08:46-1', 'xouxou@live.com', 'remi.raze83@gmail.com', 'demande de résilliation d\'abonnement livebox', '2018-02-20 09:00:00', '0');
+    $requete = "'INSERT INTO messagerie VALUES('".$Expediteur."','".$Destinataire."','".$Cc."','".$CcI."','".$Objet."','".$Contenu."','".$PieceJointe."','".$Date."','".$Taille."')";
+    filtrerChainePourBD($requete, $idConnexionMessagerie);
+    $reponse = $idConnexionMessagerie -> query($requete);
+    return $reponse;
+}
+
+
+/**
+ * Fonction de filtrage des requetes pour la base de donnees
+ * @param resource $idConnexionMessagerie         => Variable contenant les informations de connexion
+ * @param String $requete                 => Variable de chaine de caractère contenant la requete SQL a echaper
+ * @return String $requete                => Variable de chaine de caractère contenant la requete SQL echapee
+ */
+function creationIdMail($idConnexionMessagerie, $donneesMail)  {
+    $idMail = "'".date(d).date(M).date(y)."-".time()."-".rand(0, 99)."'";
+    return $idMail;
+}
+
+
+?>

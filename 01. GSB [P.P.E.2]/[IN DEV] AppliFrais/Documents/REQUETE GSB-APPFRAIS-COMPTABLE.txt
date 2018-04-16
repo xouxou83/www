@@ -1,0 +1,11 @@
+REQUETE GSB-APPFRAIS-COMPTABLE :
+
+	[TABLE COMPTABLE]
+INSERT INTO `comptable` (`idComptable`, `Nom`, `Prénom`, `Login`, `Mdp`, `adresse`, `cp`, `ville`, `Agence`) VALUES ('a01', 'Allen', 'Paul', 'pallen', 'Pallen01+', '7 Rue de la joie, Résidence du Bonheur', '83200', 'Toulon', 'Hyères');
+
+UPDATE `comptable` SET `Mdp` = PASSWORD('Pallen01+') WHERE `comptable`.`idComptable` = 'a01';
+	[fail]
+UPDATE `comptable` SET `Mdp` = DES_ENCRYPT('Pallen01+','gsbcomptable') WHERE `comptable`.`idComptable` = 'a01';
+	[fail]
+
+ALTER TABLE `fichefrais` ADD `datelimite` DATE NOT NULL DEFAULT '2018/02/25' AFTER `idEtat`; [ OK }

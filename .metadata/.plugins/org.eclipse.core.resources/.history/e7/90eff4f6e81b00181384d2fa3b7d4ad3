@@ -1,0 +1,9 @@
+<?php
+
+$repInclude = './Include/';
+$repIncludeVisiteur = './Include/Visiteur/';
+
+require($repInclude .'_initialisation.inc.php');
+
+
+

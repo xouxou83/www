@@ -1,0 +1,29 @@
+Liste des modifs a faire :
+
+   OK   - Mettre une option sur l'acceuil, partie visiteurs, et partie comptables.
+	- gérer l'affichage:  a partir d'une certaine taille mini plus de reduction de texte pour ne pas déformer
+   OK   - Faire une deconnection automatique au bout d'un certain temps et lors de la fermeture de la page.
+	- Faire un système de messagerie entre le visiteur et l'entreprise. 
+   OK   - Cryptage des mots de passes (et infos personnelles?).
+	- Agenda des visites et rendez vous avec rappel.
+	- Option d'agrandissement partiel pour les mal voyant.
+	- Etat/suivi des remboursements.
+	- Ajout d'une option permettant de faire des demandes officielles (choix multiples)
+	- Modifier le système de saisie en cours.
+	- Partie service comptable en appli web aussi.
+	- Ajout d'une partie compte rendus et actions dans le menu
+	- Crypter les information qui sont soumises au site et celle que le site montrent.
+	- Connection SSH pour la base de donnée
+	- Connection SSL pour le site web
+	- Garder la même architecture de script pour la gestion des frais visiteurs 
+	- Faire une seconde partie d'appli web pour les comptables avec accès aux fiches de la base de donnée visiteurs
+	- Refonte des bases de données, et nommage celon activité: GSB-AppliFrais (visiteurs) et GSB-AppliFrais-MVC (comptable)
+	- Celon qui se connecte, il aura la partie visiteur ou la partie comptable
+	- Rédiger une doc avec tout les details, inclure la partie: mis à jour, et la partie supprimé.
+	- Changer $_GET en $_POST, ou mieux
+	- penser a échapper le code HTML avec "htmlspecialchars"
+	- Ajouter un moyen de faire parvenir des documents (upload)
+	- Dans la page saisirFrais mettre le cadre de saisie au dessus de ceux deja entrer.
+	- fermer la session de saisie en quittant la page
+	- ajouter dans les formulaire "autocomplete" pour voir les précédente entrée lors de la saisie
+	- s

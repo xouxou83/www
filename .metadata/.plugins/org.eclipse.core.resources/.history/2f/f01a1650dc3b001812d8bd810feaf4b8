@@ -1,0 +1,30 @@
+<?php
+/**
+ * Page permettant la copie de la base de donnée GSB vers Centre_de_sauvegarde_GSB
+ * @author RAZE Rémi
+ * @date 09/04/2018
+ * @TODO RAS
+ *
+ */
+
+$repInclude = './include/';
+require($repInclude . "_initialisation.inc.php");
+
+//=> page inaccessible si visiteur non connecte
+/*if ( ! estVisiteurConnecte() ) {
+    header("Location: identification.php");
+}
+*/
+$idConnexion = connecterServeurBD();
+$idConnexionSave = connecterServeurBDSave();
+
+$requete = "SELECT id, mdp FROM visiteur";
+$idJeu = $idConnexion -> prepare($requete);
+$export = FALSE;
+$idJeu -> execute();
+
+if ( $idJeu != NULL) {
+    $export = $idJeu -> fetchAll();
+}
+print_r($export);
+

@@ -1,0 +1,35 @@
+<?php
+/* Page d'acceuil de l'application Web Appli-Frais
+ * Retravaillée par M.RAZE Rémi
+ */
+$repInclude = './include/';
+require($repInclude."_init.inc.php");
+
+// fonction estVisiteurConnecte() => estConnecte()
+if ( ! estConnecte() ) {
+    header("Location: identification.php");
+}
+
+require($repInclude ."_entete.inc.html");
+require($repInclude ."_sommaire.inc.php");
+?>
+            <!-- Division Principale -->
+	<div id = "contenu">
+		<h1>Bienvenue sur l'intranet GSB</h1>
+	</div>
+<?php 
+require($repInclude . "_pied.inc.html");
+require($repInclude . "_fin.inc.php");
+?>
+
+
+/* -Retrait de la condition si connecté car système de 
+ *  déconnection automatique.
+ * -Changement Fonction estVisiteurConnecte
+ *
+ *
+ *
+ *
+ *
+ *
+ */

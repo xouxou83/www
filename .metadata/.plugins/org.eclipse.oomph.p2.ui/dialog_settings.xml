@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<section name="org.eclipse.oomph.p2.internal.ui.AgentAnalyzerDialog">
+		<item value="750" key="dialogHeight"/>
+		<item value="750" key="dialogWidth"/>
+	</section>
+</section>

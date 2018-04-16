@@ -1,0 +1,31 @@
+<?php
+$repInclude = './Include/';
+$repIncludeMessagerie = ".Messagerie/Include/";
+
+require ($repIncludeMessagerie . '_messagerieGsb.lib.php');
+require ($repInclude.'_entete.inc.html');
+
+$idConnexion = connexionServeurMessagerie();
+$boiteReception = ouvertureBoiteReception($idConnexion);
+
+?>
+	<form id="BandeauBoiteReception" action="nouvelMail.php"></form>
+		<div id="enteteBoiteReception">
+			<p id="Expediteur">Expediteur</p>
+			<p id="Objet">Objet</p>
+			<p id="Date">Date</p>
+		</div>
+	<form id="ListeMailReception" action="consulterMail.php" method="post">
+<?php 
+        for ($compteur = 1; $compteur <=30; $compteur++)   {
+            $idDiv = "ListeMailReception" + "$compteur";    ?>
+       			<div id=" <?php "$idDiv"; ?> ">
+					<input type="submit" name="expediteur" value=" <?php echo($boiteReception[$compteur]['expediteur']);?>">
+					<input type="submit" name="objet" value=" <?php echo($boiteReception[$compteur]['objet']); ?> ">
+					<input type="submit" name="date" value=" <?php echo($boiteReception[$compteur]['date']); ?> ">
+				</div>
+<?php } ?>
+		</form>
+<?php 
+	require ($repInclude.'_pied.inc.html');
+?>

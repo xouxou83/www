@@ -1,0 +1,756 @@
+/* Styles des divisions principales de la page */
+body{
+    background-color: #77AADD;
+	background-image: url(imgs/FONDGLOBAL.jpg);
+	background-repeat: repeat-x;
+    margin:0% 0%;
+    padding : 0.6em;
+    font-family:"Trebuchet MS",Verdana,Geneva,Arial,Helvetica,sans-serif;
+    font-size:0.8em;
+}
+
+#menuGauche {
+	margin-top: 1%;
+	padding: 1%;
+	color: #008080;
+	float: left;
+	width: 15%;
+	height: 50em;
+	min-height: 70%;
+	max-height: 100%;
+	border: groove 0.5em #008080;
+	border-collapse: separate;
+	border-bottom-right-radius: 10pc;
+	text-align: center;
+	background-color: white;
+}
+
+#nom {
+	border: double #008080;
+	height: 15%;
+	width: 90%;
+	padding-bottom: 0%;
+	border-bottom-right-radius: 2pc;
+	border-bottom-left-radius: 2pc;
+	border-top-left-radius: 2pc;
+	border-top-right-radius: 2pc;
+}
+
+#infosUtil {
+	text-align: center;
+	display: inline;
+}
+
+#deconnexion {
+	margin-top: 30%;
+	border: double gray;
+	text-align: center;
+	vertical-align: middle;
+	height: 3%;
+	width: 100%;
+	border-bottom-right-radius: 2pc;
+	border-bottom-left-radius: 2pc;
+	border-top-left-radius: 2pc;
+	border-top-right-radius: 2pc;
+  	background-color : #00a6a6;
+	color: white;
+  	font-weight: 900;
+  	font-family: white;
+}
+
+#accueil {
+	margin-top: 20%;
+	margin-bottom: 20%;
+	text-align: center;
+}
+
+#page {
+  	background-color: white;
+  	width: 80%;
+  	height: 92em;
+  	max-width: 80%;
+  	margin: auto;
+  	margin-left: 19%;
+  	border: 0.2em solid black;
+  	padding: 0.1em;
+  	min-height: 40%;
+  	max-height: 100%;
+  	border-collapse: separate;
+}
+
+#entete {
+  	background-color:rgb(72,198,236);
+	color: #008080;
+	border: solid 0.1em #980101;
+	height: 20%;
+	border-collapse: collapse;
+	max-width: 100%;
+}
+
+
+#logoGSB {
+	margin-top: 0.8%;
+	margin-left: 2%;
+	min-width: 10%;
+	max-width: 25%;
+	min-height: 15%;
+	max-height: 90%;
+}
+
+#titrePage {
+	text-align: center;
+	color: #008080;
+	border: groove 0.2em #008080;
+	border-collapse: separate;
+	border-bottom-right-radius: 8pc;
+	padding: 1%;
+	width: 110%;
+}
+
+#pied {
+ 	clear: both;
+ 	margin-left: 19%;
+	text-align: center;
+	color: #008080;
+	width: 80%;
+	border: groove 0.5em;
+	border-collapse: collapse;
+	border-bottom-right-radius: 5pc;
+	border-bottom-left-radius: 5pc;
+	background-color: white;
+}
+
+
+#FormIdentificationP {
+	margin-left: 5%;
+	margin-top: 5%;
+	margin-bottom: 5%;
+	text-align: center;
+}
+
+#connexionVisiteur {
+	width: 8%;
+	height: 6%;
+}
+
+#connexionComptable {
+	width: 8%;
+	height: 6%;
+}
+
+#FormIdentification {
+	display: inline;
+	align-content: center;
+	margin-top: 55%;
+	margin-left: 44.5%;
+}
+
+#choixIdentification {
+	margin-top: 40%;
+	text-align: center;
+	border-collapse: separate;
+}
+
+.bouton {
+	display: inline;
+	width: 30%;
+	height: 5%;
+	line-height: 15px;
+	text-align: center;
+	vertical-align: middle;
+	background-color: #008080;
+	color: white;
+	outline-style: groove 5em #008080;
+	text-decoration: blink;
+	border-bottom-right-radius: 5pc;
+	border-bottom-left-radius: 5pc;
+	border-top-right-radius: 5pc;
+	border-top-left-radius: 5pc;
+}
+
+.boutonV {
+	display: inline;
+	width: 20%;
+	height: 2%;
+	line-height: 15px;
+	text-align: center;
+	vertical-align: middle;
+	background-color: white;
+	color: #008080;
+	outline-style: outset;
+	text-decoration: blink;
+	margin: 1%;
+}
+
+.encadre{
+	border: double 0.7em #008080;
+	height: 50em;
+	width: 50em;
+	min-height: 50%;
+	max-height: 80%;
+	min-width: 50%;
+	max-width: 110%;
+}
+
+#HautEncadre {
+	text-align: center;
+}
+
+#contenu {
+	border: none;
+	padding-top: 15%;
+	padding: 1%;
+	border-collapse: collapse;
+	background-color: white;
+	border-left: groove 0.7em #008080;
+	margin-left: 5%;
+/* permet de fixer une hauteur mini sur les navigateurs modernes */
+	width: 80%;
+  	height: 75em;
+  	max-width: 90%;
+  	min-height: 90%;
+  	max-height: 100%;
+/* pour obtenir le mï¿½me effet sur IE, sachant que si le contenu dï¿½passe, il
+"poussera" la hauteur en ne respectant pas la norme. On se joue de ses lacunes	*/
+}	
+
+#cadreAccueil {
+	border: ridge 0.4em #008080;
+	align-content: center;
+	text-align: center;
+	vertical-align: middle;
+	margin-top: 15%;
+	padding-top: 3%;
+	padding-bottom: 5%;
+	height: 5%;	
+}
+#contenuH {
+	border: background;
+	padding: 2%;
+	background-color: white;
+	border-left:  groove 0.8em #980101;
+  	margin-top: 1.2%;
+	margin-left: 5%;
+/* permet de fixer une hauteur mini sur les navigateurs modernes */
+ 	min-height:27px;
+/* pour obtenir le mï¿½me effet sur IE, sachant que si le contenu dï¿½passe, il
+"poussera" la hauteur en ne respectant pas la norme. On se joue de ses lacunes
+*/
+  	height:35%;
+}
+/* Contenu intermed consultation des frais*/
+#contenuIntermed { 
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 14px;
+	font-weight: bold;
+	color: #1D2941;
+	text-decoration: none;
+	border : 1px solid #6988BE;
+	padding-left: 25px;
+	background-color: #E9F1FE;
+ 	height : 28px;
+	padding-right: 55.5em; 
+	
+/*	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 14px;
+	font-weight: bold;
+	color: #1D2941;
+	text-decoration: none;
+	border : 1px solid #6988BE;
+	padding-left: 25px;
+	background-color: #E9F1FE;
+  height : 28px;*/
+}
+
+/* pour retablir le mauvais effet sur les nav. modernes */
+html>body #contenu {
+  height: auto;
+  
+}
+
+ul#menuDeco {
+	padding-top: 30%;
+    list-style: none;
+    margin: 0px;
+    padding: 1px;
+    width: 98%;
+    font-size: 1em;
+    color: #008080;
+}
+
+ul#menuDeco li {
+    position: relative;
+    margin-top: 50%;
+    padding: 0px;
+}
+
+/* apparences des liens dans listes et sous-listes non numérotées */
+ul#menuDeco a {
+    display: inline;
+    text-decoration: none;
+    width: 100%;
+    color: white;
+}
+
+ul#menuDeco a:hover {
+    background: #008080;
+    color: white;
+    border-bottom-right-radius: 2pc;
+    border-bottom-left-radius: 2pc;
+    border-top-left-radius: 2pc;
+    border-top-right-radius: 2pc;
+    width: 110%;
+}
+
+/* style : appliquer  la balise ul d'identifiant menulist */
+ul#menuList {
+
+    list-style: none;
+    margin: 0px;
+    padding: 1px;
+    width: 100%;
+    font-size: 1em;
+    color: #008080;
+    display: inline;
+}
+
+/* style à appliquer aux elements de la balise ul d'identifiant menulist */
+ul#menuList li {
+    position: relative;
+    margin-top: 5%;
+    padding: 0px;
+}
+
+/* apparences des liens dans listes et sous-listes non numérotées */
+ul#menuList a {
+    display: inline;
+    text-decoration: none;
+    width: 50%;
+    color: #008080;
+}
+
+ul#menuList a:hover {
+    background: #008080;
+    color: white;
+    border-bottom-right-radius: 2pc;
+    border-bottom-left-radius: 2pc;
+    border-top-left-radius: 2pc;
+    border-top-right-radius: 2pc;
+    width: 110%;
+}
+
+
+.smenuVisiteur{
+	color: #008080;
+}
+
+#entete #logoGSB {
+  float : left;
+  width : 238px;
+  height : 152px;
+}
+
+#entete h1 {
+  margin : 1%;
+  margin-left: 4%;
+  font-size : 250%;
+  text-align: center;
+  vertical-align: middle;
+  margin-top: 5%;
+  display: auto;
+}
+
+#contenu pre {
+  width: 95%;
+  overflow : scroll;
+}
+
+#contenu h2 {
+	text-align: center;
+	color: #008080;
+	border: groove 0.2em #008080;
+	border-collapse: separate;
+	border-bottom-right-radius: 8pc;
+	padding: 1%;
+ 	font-size : large;
+  	margin-bottom: 1em; 
+  	width: 110%;
+}
+
+.logoValidW3c {
+  display: inline;
+}
+
+#libValidW3c {
+  display : inline;
+  vertical-align:middle;
+}
+
+/* Style des formulaires */
+.corpsForm {
+  	border : groove 0.3em #008080;
+  	margin-bottom : 0%;
+  	margin-top: 10%;
+  	margin-left: 5%;
+  	width : 105%;
+  	align-content: center;
+	align-items: center;
+	text-align: center;
+}
+
+.corpsFormConsult {
+  	border : groove 0.3em #008080;
+  	margin-bottom : 2%;
+  	margin-top: 5%;
+  	width : 95%;
+  	align-content: center;
+	align-items: center;
+	text-align: center;
+}
+
+#tableDeConsultation {
+	border : groove 0.3em #008080;
+  	margin-bottom : 2%;
+  	margin-top: 5%;
+  	width : 95%;
+  	align-content: center;
+	align-items: center;
+	text-align: center;
+}
+
+.legend{
+	border : groove 0.3em #008080;
+  	margin-bottom : 2%;
+  	margin-top: 5%;
+  	width : 95%;
+  	align-content: center;
+	align-items: center;
+	text-align: center;
+}
+
+.piedForm {
+/* border-bottom-width : 0.1em;
+  border-left-width : 0.1em;
+  border-right-width : 0.1em;
+  border-top-width : 0em;
+  border-style : solid;
+  border-color : #000;	*/
+  text-align: center;
+  width : 95%;
+  margin-top: 0%; 
+  margin-left: 10%;
+}
+
+form {
+  margin-bottom: 1em;  
+}
+
+.ligneElementForfait {
+
+}
+
+#BandeauBoiteReception {
+	outline-style: outset;
+	text-align: center;
+	align-items: center;
+	color: #008080;
+	border: groove 0.3em #008080;
+	border-collapse: separate;
+	border-bottom-right-radius: 8pc;
+	width: 98%;
+	height: 3%;
+}
+
+.boutonM {
+	width: 25%;
+	height: 100%;
+	line-height: 25%;
+	text-align: center;
+	font-size: 115%;
+	background-color: transparent;
+	border: groove 0.3em #008080;
+	border-left-width: 5%;
+	border-bottom-right-radius: 5pc;
+	border-top-left-radius: 5pc;
+	color: #008080;
+	outline-style: outset #008080;
+}
+
+#ListeMailReception {
+	outline-style: groove 0.8em #008080;
+	width: 98%;
+	height: 75%;
+	padding-bottom: 25%;
+	text-align: center;
+	color: #008080;
+	border: groove 0.5em #008080;
+	border-collapse: separate;
+	border-bottom-right-radius: 8pc;
+}
+
+
+#Expediteur {
+	text-align: center;
+	color: #008080;
+	border: groove 0.2em #008080;
+	border-collapse: separate;
+	border-bottom-right-radius: 5pc;
+	width: 15em;
+}
+
+#Objet {
+	text-align: center;
+	color: #008080;
+	border: groove 0.2em #008080;
+	border-collapse: separate;
+	border-bottom-right-radius: 5pc;
+	width: 15em;
+}
+
+#Date {
+	text-align: center;
+	align-content: right;
+	color: #008080;
+	border: groove 0.2em #008080;
+	border-collapse: separate;
+	border-bottom-right-radius: 5pc;
+	width: 15em;
+}
+
+#NewMail p {
+	display: inline;
+	width: 5em;
+	height: 1%;
+}
+
+#NewMail input {
+	display: inline;
+	width: 28%;
+	height: 4%;
+	color: #008080;
+	border: groove 0.2em #008080;
+	border-collapse: separate;
+	border-bottom-right-radius: 5pc;
+}
+
+#objetNouveauMail {
+	width: 60%;
+	color: #008080;
+	border: groove 0.2em #008080;
+	border-collapse: separate;
+	border-bottom-right-radius: 5pc;
+}
+
+#contenuNouveauMail{
+	width: 100%;
+	height: 60%;
+	vertical-align: top;
+	text-align: center;
+}
+
+#pieceJointeNouveauMail {
+	color: #008080;
+	border: groove 0.2em #008080;
+	border-collapse: separate;
+	border-bottom-right-radius: 5pc;
+	width: 50%;
+}
+
+#expediteurNouveauMail {
+	display: inline;
+}
+
+
+.corpsForm legend {
+  font-weight:bold;
+  font-size:1.2em;
+}
+.corpsForm label{
+  	float: left;
+  	text-align: right;
+  	width: 28%;
+	margin: 0;
+	padding: 0 .5em 0 0;
+	line-height: 1.8;	
+}
+input, button, textarea, select{
+  font-family:"Trebuchet MS", sans-serif;
+  font-size: 1em;
+}
+button{
+  width: 60px;
+  height: 30px;
+  text-align: center;
+  vertical-align: middle;
+}
+input:hover, textarea:hover, select:hover{
+  background-color: #008080;
+  color: white;
+  cursor: pointer;
+}
+
+/*  Le texte des messages d'erreur est de couleur rose sur fond ocre et de 
+taille de caractères l�g�rement sup�rieure � la normale */
+.erreur{ 
+   background-color: rgb(237,210,229);
+   color: rgb(203,28,128);
+   font-size: 1.1em;
+   width: 95%;
+}
+.centre {
+  text-align: center;
+}
+
+.info {
+   background-color: rgb(178,207,81);
+   color: white;
+   font-size: 1.1em;
+   width: 110%;
+   text-align: center;
+
+}
+
+.encadre {
+/*  border : solid 0.1em #000;	*/
+  width: 95%;
+}
+/* Style pour les liens de la page principale */
+#contenu .corpsTexte {
+  width: 80%;
+  font-size: 1.2em;
+}
+
+/* Style pour les liens de la page principale */
+#contenu a {
+   font-size : 1.1em;
+   color: gray;
+   text-decoration: none;
+}
+#contenu a:hover {
+   text-decoration: underline;
+   background-color: #D9BB7A;
+   font-size: 1em;
+}
+
+/* Style pour les parties importantes de la page principale */
+#contenu strong {
+  font-weight:bold;
+}
+
+/* Styles pour les tableaux de la page principale */
+#contenu table {
+   background-color: #FFF;
+   border: 0.1em solid #777777;
+   color: black;
+   margin-right: auto ;
+   margin-left: 0.3em;
+   border-collapse : collapse;
+}
+
+/* Style pour les lignes d'en-t�te des tableaux */
+#contenu th {  
+   background-color: #77AADD;
+   height: 21px;
+   text-align: left;
+   vertical-align: top;
+   font-weight: bold;
+   border-bottom: 0.1em solid #777777;
+   font-size: 1.1em;
+} 
+
+#contenu td {
+   border: 1px solid #777777;
+}
+
+#contenu h3 {
+    font-size: 1.2em;
+}
+
+.listeLegere{
+	margin-left: 10%;
+}
+
+table.listeLegere {
+/*    width:80%;*/
+    margin-bottom: 0.5em;
+
+}
+
+/* Tableaux quadrill�s utilis�s pour l'affichage de listes avec contenu l�ger*/ 
+table.listeLegere th, table.listeLegere td {
+  	border: dotted rgb(178,207,81) 0.1em;
+  	padding: 0.5em;
+  	vertical-align: top;
+  	text-align: center;
+  	width: 50%;
+}
+
+table.listeLegere caption {
+/*	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 14px;
+	font-weight: bold;
+	color: #1D2941;
+	text-decoration: none;
+	border : 1px solid #6988BE;
+	padding-left: 25px;
+	background-color: #E9F1FE;
+ 	height : 28px;
+	padding-right: 55.5em; */
+  font-size: 1.1em; 
+  text-align: center;
+  text-align: justify;
+  margin-bottom: 0.3em;
+  	margin-left: 5em;
+}
+table.listeLegere td {
+  vertical-align: top;
+  font-weight: normal;
+}
+table.listeLegere th.eltForfait{
+  color: black;
+}
+table.listeLegere th.date, table.listeLegere th.montant{
+  width: 15%;
+  color: black;
+}
+table.listeLegere th.libelle{
+  width: 50%;
+  color: black;
+}
+
+/* 		#contenu h2 {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 1.2em;
+	font-weight: bold;
+	color: #1D2941;
+	text-decoration: none;
+	border : 1px solid #6988BE;
+	padding-left: 25px;
+	background-color: #E9F1FE;
+ 	height : 28px;	
+}		*/
+
+#contenu img {
+  height : 28px;
+  float : left;
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

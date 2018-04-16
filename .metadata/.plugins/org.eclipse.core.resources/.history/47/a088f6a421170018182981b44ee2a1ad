@@ -1,0 +1,9 @@
+<?php
+
+/*
+ * Page permettant la connexion au site
+ */
+$repInclude = './Include/';
+$repIncludeVisiteur = './Include/Visiteur/';
+
+require '';

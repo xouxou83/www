@@ -1,0 +1,23 @@
+<?php
+/**
+ * Controle les informations de connexionn de l'utilisateur.
+ * Verifie si les informations de connexion $unLogin, $unMdp sont ou non valides.
+ * Retourne les informations de l'utilisateur sous forme de tableau associatif
+ * dont les cles sont les noms des colonnes (id, nom, prenom, login, mdp)
+ * si login et mot de passe existent, le booleen false sinon.
+ * @param resource $idCnx identifiant de connexion
+ * @param string $unLogin login
+ * @param string $unMdp mot de passe
+ * @return array tableau associatif ou booléen false
+ */
+verifierInfosConnexionVisiteur($idCnx, $unLogin, $unMdp) {
+    $unLogin = filtrerChainePourBD($unLogin);
+    $unMdp = filtrerChainePourBD($unMdp);
+    // le mot de passe est crypté dans la base avec la fonction crypt() et un salt different a chaque
+    $req = "'select id, nom, prenom, login, mdp from Visiteur where login='".$unLogin."' and mdp='" . $unMdp . "'";
+    $idJeuRes = $bdd -> query($req);
+    $ligne = false;
+    if ( $idJeuRes ) {
+        $ligne = $bdd -> fetch_assoc($idJeuRes);
+        $bdd -> free_result($idJeuRes);
+    }

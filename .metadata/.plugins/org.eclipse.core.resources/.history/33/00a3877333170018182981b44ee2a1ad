@@ -1,0 +1,36 @@
+Liste des modifs a faire :
+
+   	OK 	1� Mettre une option sur l'acceuil, partie visiteurs, et partie comptables.
+		2� CSS => g�rer l'affichage:  a partir d'une certaine taille mini plus de reduction de texte pour ne pas d�former
+   	OK 	3� Faire une deconnection automatique au bout d'un certain temps et lors de la fermeture de la page.
+     EN COURS	4� Faire un syst�me de messagerie entre le visiteur et l'entreprise. 
+   	OK 	5� Cryptage des mots de passes (et infos personnelles?).
+		6� Agenda: exmples des visites et rendez vous avec rappel.
+		7� Option d'agrandissement partiel pour les mal voyant.
+		8� Etat/suivi des remboursements.
+		9� Ajout d'une option permettant de faire des demandes officielles (choix multiples)
+		10� Modifier le syst�me de saisie en cours.
+		11� Partie service comptable en appli web aussi.
+		12� Ajout d'une partie compte rendus et actions dans le menu
+		13� Crypter les information qui sont soumises au site et celle que le site montrent.
+		14� Connection SSH pour la base de donn�e
+		15� Connection SSL pour le site web
+		16� Garder la m�me architecture de script pour la gestion des frais visiteurs 
+		17� Faire une seconde partie d'appli web pour les comptables avec acc�s aux fiches de la base de donn�e visiteurs
+		18� Refonte des bases de donnees, et nommage celon activit�: GSB-AppliFrais-MVC (Messagerie, Visiteur, Comptable)
+		19� Celon qui se connecte, il aura la partie visiteur ou la partie comptable
+		20� R�diger une doc avec tout les details, inclure la partie: mis � jour, et la partie supprim�.
+		21� Changer $_GET en $_POST, ou mieux
+		22� penser a �chapper le code HTML avec "htmlspecialchars"
+		23� Ajouter un moyen de faire parvenir des documents (upload)
+		24� Dans la page saisirFrais mettre le cadre de saisie au dessus de ceux deja entrer.
+		25� fermer la session de saisie en quittant la page
+			- Faire fonction qui modifie le fichier PHP.ini pour r�gler gc_max_time* (*Pas s�r du nom)
+		26� ajouter dans les formulaire "autocomplete" pour voir les pr�c�dente entr�e lors de la saisie
+    EN COURS	27� Mettre Choix de v�hicules, carburant, cynlindr�e, ...
+		28� Mettre limite de temps pour les pi�ce � rendre par exemple
+		29� Possibilit� de changements (vehicule, numero de tel, eamail, ... )
+		30� Message personnel concernant le dossier sinon citation a la connection.
+		31� Faire des indications de moyennnes
+		32� controle de saisie, verifier la coh�rences des donn�ees utilisateurs.
+		33� Modifier "_gestionSession.lib.php" et "_utilitairesEtGestionErreurs.lib.php"

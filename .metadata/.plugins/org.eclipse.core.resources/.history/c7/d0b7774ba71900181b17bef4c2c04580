@@ -1,0 +1,72 @@
+<?php
+/**
+ * Page d'accueil de l'application web AppliFrais
+ * @package default
+ * @todo  RAS
+ */
+$repInclude = './Include/';
+$repIncludeVisiteur = './Include/Visiteur/';
+$repIncludeComptable = './Include/Comptable/';
+require($repInclude . "_initialisation.inc.php");
+
+/*
+ * La page est inaccessible si le visiteur ou le comptable n'est pas connecté
+ */
+if ( !estVisiteurConnecte() || !estComptableConnecte())  {
+    header("Location: identification.php");
+}
+require($repInclude . "_entete.inc.html");
+?>            
+    	<!-- Division principale -->
+	<div id="contenu">
+    	<h2>Bienvenue sur l'intranet GSB</h2>
+	</div>
+<?php
+
+$etape2 = (count($_POST) != 0) ? 'Visiteur' : 'Comptable';
+
+if ($etape2 == 'Visiteur') { // un Visiteur demande à s'authentifier
+    // acquisition des données envoyées, ici login et mot de passe
+
+   require($repIncludeVisiteur . "_sommaireVisiteur.inc.php");
+
+    ?>
+  	<div id="cadreAccueil">
+  		<div id="cadreAccueilHautGauche">
+  			<p><?php afficherAlertes($idConnexion); ?></p>
+  		</div>
+  	<div id="cadreAccueilBasGauche">
+  	
+  	</div>
+  	<div id="cadreAccueilDroite">
+  	  	<p>
+  		
+  		</p>
+  	</div>
+  </div>
+<?php        
+
+require($repInclude . "_pied.inc.html");
+
+}
+elseif ($etape3 == 'Comptable') { // un Visiteur demande à s'authentifier
+    // acquisition des données envoyées, ici login et mot de passe
+    $unLogin = lireDonneePost("IdentificationLogin");
+    $unMdp = lireDonneePost("IdentificationMdp");
+    $lgUser = verifierInfosConnexion($idConnexion, $unLogin, $unMdp);
+    // si l'id utilisateur a été trouvé, donc informations fournies sous forme de tableau
+    if ( is_array($lgUser) ) {
+        affecterInfosConnecte($lgUser["id"], $lgUser["login"]);
+        if ( $etape3 == "Comptable" && nbErreurs($tabErreurs) == 0 ) {
+            require($repInclude . "_entete.inc.html");
+            require($repIncludeComptable . "_sommaireComptable.inc.php");
+            
+            require($repInclude . "_pied.inc.html");
+        }
+    }
+}
+else {
+    ajouterErreur($tabErreurs, "Pseudo et/ou mot de passe incorrects");
+}
+?>
+

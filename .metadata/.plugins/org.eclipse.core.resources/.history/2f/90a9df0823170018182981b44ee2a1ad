@@ -1,0 +1,12 @@
+<?php
+
+/*
+ * Page permettant la connexion à l'application
+ */
+
+if (lireDonneeUrl("Visiteur"))   {
+$repInclude = './Include/';
+$repIncludeVisiteur = './Include/Visiteur/';
+
+require($repIncludeVisiteur .'';
+}

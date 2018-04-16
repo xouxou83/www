@@ -1,0 +1,9 @@
+<?php
+
+/*
+ * Page permettant la connexion a l'application
+ */
+$repInclude = './Include/';
+$repIncludeVisiteur = './Include/Visiteur/';
+
+require '';

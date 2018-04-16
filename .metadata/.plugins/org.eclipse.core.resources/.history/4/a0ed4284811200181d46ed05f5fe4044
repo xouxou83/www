@@ -1,0 +1,92 @@
+<?php
+/*$repInclude = "./Include/";
+require($repInclude . "_bdGestionDonnees.inc.php");
+
+function connecterServeurBD() {
+    $hote = "localhost";
+    $database = "gsb-appfrais-visiteur";
+    $login = "root";
+    $mdp = "";
+    $connect = mysqli_connect($hote, $login, $mdp, $database);
+    return $connect;
+}
+
+function stockageMdpBD($idCnx)    {
+    $MdpTab = array();
+    $requete = 'SELECT mdp FROM visiteur';
+    $idJeuRes = mysqli_query($idCnx, $requete);
+    $ligne = mysqli_fetch_assoc($idJeuRes);
+    while (is_array($ligne)) {         // while (mysqli_fetch_field('mdp')) 
+       array_push($MdpTab, $idJeuRes);
+        $ligne = mysqli_fetch_assoc ($idJeuRes);
+    }
+    mysqli_free_result($idJeuRes); 
+    return $ligne;
+}
+
+function updateBD($idCnx, $unLogin, $unMdp)   {
+  
+    $requete = "UPDATE visiteur SET mdp = " . crypto($unLogin, $unMdp) ."'"; 
+    $idJeuRes = mysqli_query($idCnx, $requete);
+    return $idJeuRes;
+}
+    connecterServeurBD();
+    stockageMdpBD($idCnx);
+*/    
+    
+/*
+ * Fonction de sauveguarde de la base de donnees.
+ */
+   // function connecterServeurBD()   {
+//        try {
+            $bdd = new PDO('mysql:host=localhost;dbname=gsb-appfrais-visiteur;charset=utf8', 'root', '');
+//        }
+//        catch (Exception $e) {
+//            die('Erreur : ' . $e -> getMessage());
+//        }
+ //       return $bdd;
+//    }
+//        function connecterServeurBDSave()   {
+//        try {
+            $bddSave = new PDO('mysql:host=localhost;dbname=centre-de-sauvegarde-gsb;charset=utf8', 'root', '');
+//        }
+//        catch (Exception $d) {
+//            die('Erreur : ' . $d -> getMessage());
+//        }
+//          return $bddSave;
+//      }
+    function copie($bdd, $bddSave)    {
+        $requete = "SELECT * from visiteur ";
+        $bdd -> quote($requete);
+        $reponses = $bdd -> query($requete);
+        $MdpSave = array();
+        $compt = 0;
+        while ($donnees = $reponses -> fetch())  {   // Prend une par une les données de la BD
+            $id = $donnees['id'];
+            $nom = $donnees['nom'];
+            $prenom = $donnees['prenom'];
+            $login = $donnees['login'];
+            $mdp = $donnees['mdp']; 
+            $adresse = $donnees['adresse'];
+            $cp = $donnees['cp'];                   // Copie tout les champs dans la nouvelle base
+            $ville = $donnees['ville'];
+            echo ($ville."<br>");
+            $dateEmbauche = $donnees['dateEmbauche'];      
+            echo ("test ".$compt); 
+            $compt++;
+   //         $reponses -> closeCursor();                  // Termine la requete
+            $bddSave = exec('INSERT INTO visiteur(id, nom, prenom, login, mdp, adresse, cp, ville, dateEmbauche) VALLUES('.$id."','".$nom."','".$prenom."','".$login."','".$mdp."','".$adresse."','".$cp."','".$ville."','".$dateEmbauche."')'");
+            print_r($bddSave);  
+            echo ("<br>");
+        }
+        return $bddSave;
+    }
+ //   echo (copie($bdd, $bddSave));
+    echo ("erreur n° " . $bddSave -> errorCode());
+        
+//        $reponses -> closeCursor();                  // Termine la requete
+        
+
+
+//  requete operationnelle :"UPDATE visiteur SET mdp = md5 (mdp)" 
+?>

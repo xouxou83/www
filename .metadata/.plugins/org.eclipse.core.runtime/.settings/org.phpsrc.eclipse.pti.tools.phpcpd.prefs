@@ -1,0 +1,6 @@
+debug_print_output=false
+eclipse.preferences.version=1
+file_suffixes=
+min_lines=5
+min_tokens=70
+php_executable=PHP 7.1.9 (CLI)

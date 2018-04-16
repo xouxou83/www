@@ -1,0 +1,35 @@
+<?php
+/** 
+ * Initialise les ressources nécessaires au fonctionnement de l'application
+ * @package default
+ * @todo  RAS
+ */
+  $repInclude = './Include/';
+  require($repInclude."_gestionBDD.lib.php");
+  require($repInclude."_gestionSession.lib.php");
+  require($repInclude."_utilitairesEtGestionErreurs.lib.php");
+  
+//  démarrage ou reprise de la session
+  initSessionVisiteur();
+
+//  initialement, aucune erreur ...
+  $tabErreurs = array();
+
+// Demande-t-on une déconnexion ?
+  $demandeDeconnexion = lireDonneeUrl("cmdDeconnecter");
+  if ( $demandeDeconnexion == "on") {
+      deconnecterVisiteur();
+      header("Location: identification.php");
+  }
+    
+/* établissement d'une connexion avec le serveur de données 
+ * puis sélection de la BD qui contient les données des visiteurs et de leurs frais
+ */
+ $idConnexion = connecterServeurBDVisiteur();
+  if (!$idConnexion) {
+      ajouterErreur($tabErreurs, "Echec de la connexion au serveur MySql");
+  }
+  elseif (!activerBDVisiteur($idConnexion)) {
+      ajouterErreur($tabErreurs, "La base de données gsb-applifrais-Visiteur est inexistante ou non accessible");
+  } 
+?>

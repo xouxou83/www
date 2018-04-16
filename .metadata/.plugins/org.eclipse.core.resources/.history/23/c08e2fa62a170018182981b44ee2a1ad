@@ -1,0 +1,3 @@
+<?php
+
+verifierInfosConnexion($idConnexion, $unLogin, $unMdp)

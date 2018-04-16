@@ -1,0 +1,7 @@
+<?php
+
+$repInclude = './Include/';
+$repIncludeVisiteur = './Include/Visiteur/';
+
+require($repInclude .'_bdGestionDonnees.lib.php');
+require($repInclude .'_utilitairesEtGestionErreurs.lib.php';

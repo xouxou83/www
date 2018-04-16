@@ -1,0 +1,10 @@
+eclipse.preferences.version=1
+org.pdtextensions.semanticanalysisfixer_phar=C\:\\wamp64\\bin\\php\\phpcs.phar
+org.pdtextensions.semanticanalysisphp_executable=C\:\\wamp64\\bin\\php\\php7.1.9\\php.exe
+org.pdtextensions.semanticanalysisuse_project_phar=false
+phpcs_config=phpcs_config_default
+phpcs_custom_custom_phar_names=
+phpcs_custom_phar_locations=
+phpcs_phar_location=
+phpcs_phar_name=<Internal>
+phpcs_use_default_fixers=yes

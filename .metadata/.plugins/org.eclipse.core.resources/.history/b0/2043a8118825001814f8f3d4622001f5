@@ -1,0 +1,238 @@
+<?php
+/**
+ * Script de controle et d'affichage du cas d'utilisation "Saisir fiche de frais"
+ * @package GSB-AppliFrais
+ * @author x@ux@u   (basé sur )
+ * @projet Gsb-AppliFrais
+ * @todo RAS
+ */
+
+$repInclude = './include/';
+$repIncludeVisiteur = './include/Visiteur/';
+require($repInclude . "_initialisation.inc.php");
+
+
+if ( !estVisiteurConnecte() ) {		//=> page inaccessible si visiteur non connecte
+	header("Location: identification.php");
+}
+
+$mois = sprintf("%04d%02d", date("Y"), date("m"));		//=> affectation du mois courant pour la saisie des fiches de frais
+
+$existeFicheFrais = existeFicheFrais($idConnexion, $mois, obtenirIdUserConnecte());		//=> verification de l'existence de la fiche de frais pour ce mois courant
+
+if ( !$existeFicheFrais ) {		//=> si elle n'existe pas, on la crée avec les éléments frais forfaitisees a� 0
+	ajouterFicheFrais($idConnexion, $mois, obtenirIdUserConnecte());
+}
+// acquisition des donnees entrees
+// acquisition de l'etape du traitement
+$etape = lireDonnee("etape","demanderSaisie");
+$tabQteEltsForfait = lireDonneePost("txtEltsForfait", "");	//=> acquisition des quantites des elements forfaitisees
+$idLigneHF = lireDonnee("idLigneHF", "");	//=> acquisition des donnees d'une nouvelle ligne hors forfait
+$dateHF = lireDonnee("txtDateHF", "");
+$libelleHF = lireDonnee("txtLibelleHF", "");
+$montantHF = lireDonnee("txtMontantHF", "");
+
+// structure de decision sur les differentes etapes du cas d'utilisation
+if ($etape == "validerSaisie") {
+	//=> l'utilisateur valide les elements forfaitisees
+	//=> verification des quantites des elements forfaitisees
+	$ok = verifierEntiersPositifs($tabQteEltsForfait);
+	if (!$ok) {
+		ajouterErreur($tabErreurs, "Chaque quantite doit etre renseignee et numerique positive.");
+	}
+	else { 		//=> mise a� jour des quantites des elements forfaitisees
+		modifierElementsForfait($idConnexion, $mois, obtenirIdUserConnecte(),$tabQteEltsForfait);
+	}
+}
+elseif ($etape == "validerSuppressionLigneHF") {
+	supprimerLigneHF($idConnexion, $idLigneHF);
+}
+elseif ($etape == "validerAjoutLigneHF") {
+	verifierLigneFraisHF($dateHF, $libelleHF, $montantHF, $tabErreurs);
+	if ( nbErreurs($tabErreurs) == 0 ) {
+		//=> la nouvelle ligne ligne doit etre ajoutee dans la base de donnees
+		ajouterLigneHF($idConnexion, $mois, obtenirIdUserConnecte(), $dateHF, $libelleHF, $montantHF);
+	}
+}
+else { //=> on ne fait rien, etape non prevue
+	
+}
+?>
+      <h2>Renseigner ma fiche de frais du mois de <?php echo obtenirLibelleMois(intval(substr($mois,4,2))) . " " . substr($mois,0,4); ?></h2>
+<?php
+if ($etape == "validerSaisie" || $etape == "validerAjoutLigneHF" || $etape == "validerSuppressionLigneHF") {
+	if (nbErreurs($tabErreurs) > 0) {
+		echo toStringErreurs($tabErreurs);
+    } 
+    else {
+?>
+    	<p class="info">Les modifications de la fiche de frais ont bien ete enregistrees</p>        
+<?php
+
+    }   
+}
+  
+?> 
+  
+         
+<form action="saisieFicheFrais" method="post">
+	<div class="corpsForm">
+    	<input type="hidden" name="etape" value="validerSaisie" />
+        	<fieldset>
+            	<legend>Eléments forfaitisées</legend>
+<?php          
+    //=> demande de la requete pour obtenir la liste des éléments 
+    //=> forfaitisées du visiteur connecté pour le mois demande
+$requete = requeteElementsForfaitExistant($mois, obtenirIdUserConnecte());
+$idJeuEltsFraisForfaitExistant = $idConnexion -> prepare($requete);
+$idJeuEltsFraisForfaitExistant -> execute();
+            
+$idConnexion -> errorInfo();      
+$lgEltForfaitExistant = $idJeuEltsFraisForfaitExistant -> fetch();
+  
+print_r($lgEltForfaitExistant);
+
+    //=> demande de la requete pour obtenir le détail des éléments
+    //=> qui sont forfaitisées
+$requete = requeteElementsForfait($mois, obtenirIdUserConnecte());
+$idJeuEltsFraisForfait = $idConnexion -> prepare($requete);
+$idJeuEltsFraisForfait -> execute();
+
+$idConnexion -> errorInfo();
+$lgEltForfait = $idJeuEltsFraisForfait -> fetch();
+
+$quantite = array("0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11",
+		"12", "13", "14", "15","16","17","18","19","20","21","22","23","24","25",
+		"26","27","28","29","30");
+
+//while ( is_array($lgEltForfait) ) {
+ //   $idFraisForfait = $lgEltForfait["id"];
+    foreach ($lgEltForfait as $idFraisForfait => $quantite) {
+        $idFraisForfaitExistant = $lgEltForfait["id"];
+        $libelle = $lgEltForfait["libelle"];
+//        $libelleEx = $lgEltForfaitExistant["libelle"];
+        $montant = $lgEltForfait["montant"];
+        $quantiteEx = $lgEltForfaitExistant["quantite"];
+        
+   //     foreach ($lgEltForfait as $idFraisForfait => $quantite) {
+
+
+	    $selection = '';
+?>
+		<p>
+			<div class="ligneElementForfait">
+				<label for="<?php echo $idFraisForfait; ?>"> <?php echo $libelle; ?>* : <?php echo $montant ; ?></label>
+					<br>
+<?php 
+	   echo   ( "Veuillez sélectionner la quantité : " );
+	   if ( $idFraisForfait == "KM" ) {
+?>
+						<input type="text" id="<?php echo $idFraisForfait; ?>" 
+                   			name="txtEltsForfait[<?php echo $idFraisForfait; ?>]" 
+                    		size="10" maxlength="5"
+                    		title="Entrez la quantité de l'élément forfaitisé"
+                    		placeHolder="Nombre de Km" 
+                    		value="" /> 
+      	 	
+      	 	
+      	 	<?php echo $quantiteEx;
+	   }
+	   else	{
+?>	
+		<select title="Entrez la quantité de l'élément forfaitisé" name="txtEltsForfait[<?php echo $idFraisForfait; ?>]">
+<?php 	
+		  foreach ( $quantite as $valeur )	{
+		      if   ( $quantite == $valeur )	{
+				$selection = ' selected = "selected"';
+		      }
+	
+			// Affichage de la ligne
+		      echo "\t",'<option value="', $valeur ,'"', $selection ,'>', $valeur ,'</option>',"\n";
+			// Remise a zero de $selection
+			$selection='';
+		  }
+		  echo '</select>',"\n";
+	   }
+	
+ 	?></div></p><?php
+    $lgEltForfait = $idJeuEltsFraisForfait -> fetch();  
+    }
+//}
+$idJeuEltsFraisForfait -> closeCursor();
+?>
+</fieldset>
+	</div>
+		<div class="piedForm">
+			<p>
+        		<input id="ok" type="submit" value="Valider" size="20" 
+               		title="Enregistrer les nouvelles valeurs des élements forfaitisées" />
+        		<input id="annuler" type="reset" value="Effacer" size="20" />
+      		</p> 
+      	</div>
+</form>
+<table class="listeLegere">  
+	<div>
+    	<h2>Descriptif des éléments hors forfait</h2>
+	</div> 		
+
+<?php          
+// demande de la requete pour obtenir la liste des elements hors
+// forfait du visiteur connecte pour le mois demande
+$requete = requeteElementsHorsForfait($mois, obtenirIdUserConnecte());
+$idJeuEltsHorsForfait = $idConnexion -> prepare($requete);
+$idJeuEltsHorsForfait -> execute();
+$lgEltHorsForfait = $idJeuEltsHorsForfait -> fetch();
+          
+// parcours des frais hors forfait du visiteur connecte
+while ( is_array($lgEltHorsForfait) ) {
+?>
+	<tr>
+    	<td><?php echo $lgEltHorsForfait["date"] ; ?></td>
+    	<td><?php echo filtrerChainePourNavig($lgEltHorsForfait["libelle"]) ; ?></td>
+    	<td><?php echo $lgEltHorsForfait["montant"] ; ?></td>
+    	<td><a href="?etape=validerSuppressionLigneHF&amp;idLigneHF=<?php echo $lgEltHorsForfait["id"]; ?>"
+                       onclick="return confirm('Voulez-vous vraiment supprimer cette ligne de frais hors forfait ?');"
+                       title="Supprimer la ligne de frais hors forfait">Supprimer</a></td>
+	</tr>
+<?php
+	$lgEltHorsForfait = $idJeuEltsHorsForfait -> fetch();
+}
+$idJeuEltsHorsForfait -> closeCursor();
+?>
+</table>
+	<form action="" method="post">
+    	<div class="corpsForm">
+        	<input type="hidden" name="etape" value="validerAjoutLigneHF" />
+        		<fieldset>
+            		<legend>Nouvel élément hors forfait</legend>
+            			<p>
+              				<label for="txtDateHF"> Date* : </label>
+              				<input type="text" id="txtDateHF" name="txtDateHF" size="12" maxlength="10" 
+                     			title="Entrez la date d'engagement des frais au format JJ/MM/AAAA" 
+                     			value="<?php echo $dateHF; ?>" />
+            			</p>
+           				<p>
+              				<label for="txtLibelleHF"> Libellé* : </label>
+              				<input type="text" id="txtLibelleHF" name="txtLibelleHF" size="12" maxlength="100" 
+                     			title="Entrez un bref descriptif des frais" 
+                     			value="<?php echo filtrerChainePourNavig($libelleHF); ?>" />
+            			</p>
+            			<p>
+              				<label for="txtMontantHF"> Montant* : </label>
+              				<input type="text" id="txtMontantHF" name="txtMontantHF" size="12" maxlength="10" 
+                     			title="Entrez le montant des frais (le point est le separateur decimal)" value="<?php echo $montantHF; ?>" />
+            			</p>
+          		</fieldset>
+		</div> 	
+	<div class="piedForm">
+		<p>
+        	<input id="ajouter" type="submit" value="Ajouter" size="20" 
+               	title="Ajouter la nouvelle ligne hors forfait" />
+        	<input id="effacer" type="reset" value="Effacer" size="20" />
+      	</p> 
+	</div>
+</form>
+</div>  
+<?php
+  require($repInclude . "_fin.inc.php");
+?>

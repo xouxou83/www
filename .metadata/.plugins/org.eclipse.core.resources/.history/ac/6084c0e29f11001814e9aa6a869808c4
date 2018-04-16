@@ -1,0 +1,15 @@
+<?php
+/*
+ * Librairie des fonctions pour la gestion de la base de donnée (PDO)
+ * @ By x@ux@u
+ */
+   
+function connecterServeurBD()   {
+    try {
+    $bdd = new PDO('mysql:host=localhost;dbname=gsb-applifrais-visiteur;charset=utf8', 'root', '');
+    }
+    catch ()
+    return $bdd;
+}
+
+?>

@@ -1,0 +1,39 @@
+Liste des modifications à faire :
+
+       OK 	 1° Mettre une option sur l'acceuil, partie visiteurs, et partie comptables.
+		 2° CSS => gérer l'affichage: à partir d'une certaine taille mini plus de reduction de texte pour ne pas déformer
+       OK 	 3° Faire une deconnection automatique au bout d'un certain temps et lors de la fermeture de la page.
+    EN COURS	 4° Faire un système de messagerie entre le visiteur et l'entreprise. 
+       OK 	 5° Cryptage des mots de passes (et infos personnelles?).
+		 6° Agenda: exmples des visites et rendez vous avec rappel.
+		 7° Option d'agrANDissement partiel pour les mal voyant.
+		 8° Etat/suivi des remboursements.
+		 9° Ajout d'une option permettant de faire des demandes officielles (choix multiples)
+		10° Modifier le système de saisie en cours.
+		11° Partie service comptable en appli web aussi.
+		12° Ajout d'une partie compte rendus et actions dans le menu
+		13° Crypter les information qui sont soumises au site et celle que le site montrent.
+		14° Connection SSH pour la base de donnée
+		15° Connection SSL pour le site web
+		16° Garder la même architecture de script pour la gestion des frais visiteurs 
+		17° Faire une seconde partie d'appli web pour les comptables avec accès aux fiches de la base de donnée visiteurs
+		18° Refonte des bases de données, et nommage celon activité: GSB-AppliFrais-MVC (Messagerie, Visiteur, Comptable)
+		19° Celon qui se connecte, il aura la partie visiteur ou la partie comptable
+		20° Rédiger une doc avec tout les details, inclure la partie: mis à jour, et la partie supprimé.
+		21° Changer $_GET en $_POST, ou mieux
+		22° penser à échapper le code HTML avec "htmlspecialchars"
+		23° Ajouter un moyen de faire parvenir des documents (upload)
+		24° Dans la page saisirFrais mettre le cadre de saisie au dessus de ceux deja entrer.
+		25° fermer la session de saisie en quittant la page
+       OK 		- Faire fonction qui modifie le fichier PHP.ini pour régler gc_max_timelife
+		26° ajouter dans les formulaire "autocomplete" pour voir les précédente entrée lors de la saisie
+    EN COURS	27° Mettre Choix de véhicules, carburant, cynlindrée, ...
+		28° Mettre limite de temps pour les pièce à rendre par exemple
+		29° Possibilité de changements (vehicule, numero de tel, eamail, ... )
+		30° Message personnel concernant le dossier sinon citation a la connection.
+		31° Faire des indications de moyennnes
+		32° controle de saisie, verifier la cohérences des donnéees utilisateurs.
+		33° Modifier "_gestionSession.lib.php" et "_utilitairesEtGestionErreurs.lib.php"
+		34° Faire une interface de gestion du site avec identif et mdp admin
+
+	IMPORTANT : essai base de données simple et s'exercer au requetes

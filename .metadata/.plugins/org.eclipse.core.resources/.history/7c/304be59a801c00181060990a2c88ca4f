@@ -1,0 +1,57 @@
+<?php
+/** 
+ * Contient la division pour le sommaire, sujet à des variations suivant la 
+ * connexion ou non d'un utilisateur, et dans l'avenir, suivant le type de cet utilisateur 
+ * Modifié par x0ux0u
+ */
+
+?>
+    <!-- Division pour le sommaire -->
+    <div id="menuGaucheVisiteur">
+     <div id="infosUtil">
+    <?php      
+      if (estVisiteurConnecte() ) {
+          $idUser = obtenirIdUserVisiteurConnecte();
+          $lgUser = obtenirDetailVisiteur($idConnexion, $idUser);
+          $nom = $lgUser['nom'];
+          $prenom = $lgUser['prenom'];            
+    ?>
+        <h2>
+    <?php  
+            echo $nom . " " . $prenom ;
+    ?>
+        </h2>
+        <h3>Visiteur médical</h3>        
+    <?php
+       }
+    ?>  
+      </div>  
+<?php      
+	if (estVisiteurConnecte() ) {
+?>
+        <ul id="menuList">
+           	<li class="smenuVisiteur">
+            	<a href="acceuilVisiteur.php" title="Page d'accueil">Accueil</a>
+            </li>
+            <li class="smenuVisiteur">
+            	<a href="deconnecter.php" title="Se déconnecter">Se déconnecter</a>
+           	</li>
+           	<li class="smenuVisiteur">
+           		<a href="SaisieFicheFraisVisiteur.php" title="Saisie fiche de frais du mois courant">Saisie fiche de frais</a>
+           	</li>
+           	<li class="smenuVisiteur">
+            	<a href="ConsulterFichesFraisVisiteur.php" title="Consultation de mes fiches de frais">Mes fiches de frais</a>
+           	</li>
+           	<li class="smenuVisiteur">
+				<a href="" title="Nous Contacter">Nous Contacter</a>           
+           	</li>
+         </ul>
+<?php
+          // affichage des éventuelles erreurs déjà détectées
+          if ( nbErreurs($tabErreurs) > 0 ) {
+              echo toStringErreurs($tabErreurs) ;
+          }
+	}
+?>
+    </div>
+    

@@ -1,0 +1,92 @@
+<?php
+/** 
+ * Contient la division pour le sommaire, sujet à des variations suivant la 
+ * connexion ou non d'un utilisateur, et dans l'avenir, suivant le type de cet utilisateur 
+ * @package GSB-AppliFrais
+ * @author x@ux@u   (basé sur )
+ * @projet Gsb-AppliFrais
+ * @todo RAS
+ */
+
+
+if ($_SERVER['PHP_SELF'] != '/GSB-New-App/identification.php') {
+?>
+    <!-- Division pour le sommaire -->
+    <div id="menuGauche">
+    	<div id="infosUtil">
+<?php      
+    if (estVisiteurConnecte()) {
+	    $idUser = obtenirIdUserConnecte();
+        $lgUser = obtenirDetailVisiteur($idConnexion, $idUser);
+        $nom = $lgUser['nom'];
+	    $prenom = $lgUser['prenom'];   
+?>
+		<div  id="nom"><h2><?php echo( $nom . " " . $prenom ); ?></h2></div>
+		
+        	<h3>Visiteur médical</h3>        
+    	</div>  
+
+		<ul id="menuList">
+           	<li class="smenuVisiteur">
+            	<a id="accueil" href="/GSB-New-App/accueil.php?User=Visiteur" title="Page d'accueil">Accueil</a>
+            </li>
+           	<li class="smenuVisiteur">
+           		<a href="/GSB-New-App/saisieFicheFrais.php?User=Visiteur" title="Saisie fiche de frais du mois courant">Saisie fiche de frais</a>
+           	</li>
+           	<li class="smenuVisiteur">
+            	<a href="/GSB-New-App/consulterFichesFraisVisiteur.php?User=Visiteur" title="Consultation de mes fiches de frais">Mes fiches de frais</a>
+           	</li>
+           	<li class="smenuVisiteur">
+				<a href="/GSB-New-App/Messagerie/boiteReception.php?User=Visiteur" title="Consulter mes messages professionnels">Messagerie</a>           
+           	</li>
+		</ul>
+        <ul id="menuDeco">
+            <li>
+            	<a id="deconnexion" href="/GSB-New-App/deconnecter.php?User=Visiteur" title="Se déconnecter">Se deconnecter</a>
+           	</li>
+		</ul>
+<?php
+          // affichage des eventuelles erreurs deja� detectees
+          if ( nbErreurs($tabErreurs) > 0 ) {
+              echo toStringErreurs($tabErreurs) ;
+          }
+	}
+    elseif (estComptableConnecte()) {
+	   $idUser = obtenirIdUserConnecte() ;
+	   $lgUser = obtenirDetailComptable($idConnexion, $idUser);
+	   $nom = $lgUser['nom'];
+	   $prenom = $lgUser['prenom'];
+?>
+<h2 id="nom"><?php echo $nom . " " . $prenom ; ?></h2>
+
+        <h3>Comptable</h3>        
+    </div>  
+
+        <ul id="menuList">
+           <li class="smenuComptable">
+              <a href="Accueil.php?User=Comptable" title="Page d'accueil">Accueil</a>
+           </li>
+           <li class="smenuComptable">
+              <a href="deconnecter.php?User=Comptable" title="Se deconnecter">Se deconnecter</a>
+           </li>
+           <li class="smenuComptable">
+              <a href="dossierEnCour.php?User=Comptable" title="Consultation des dossiers en cours">Consultation dossier en cours</a>
+           </li>
+           <li class="smenuComptable">
+              <a href="ConsultFichesFraisComptable.php?User=Comptable" title="Consultation des fiches de frais">Consultation fiches de frais</a>
+           </li>
+           <li class="smenuComptable">
+           	  <a href="nousContacter.php?User=Comptable" title="Nous Contacter">Nous Contacter</a>
+           </li>
+         </ul>
+        <?php
+          // affichage des eventuelles erreurs dejà detectees
+          if ( nbErreurs($tabErreurs) > 0 ) {
+              echo toStringErreurs($tabErreurs) ;
+          }
+    }
+}
+?>
+    </div>
+
+    

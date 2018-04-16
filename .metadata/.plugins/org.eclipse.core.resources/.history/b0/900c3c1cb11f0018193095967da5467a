@@ -1,0 +1,50 @@
+<?php
+/**
+ * Page d'accueil de l'application web AppliFrais
+ * @package default
+ * @todo  RAS
+ */
+$repInclude = './Include/';
+$repIncludeVisiteur = './Include/Visiteur/';
+$repIncludeComptable = './Include/Comptable/';
+require($repInclude . "_initialisation.inc.php");
+
+/*
+ * La page est inaccessible si le visiteur ou le comptable n'est pas connecte
+ */
+if ( !estVisiteurConnecte() || !estComptableConnecte())  {
+    header("Location: identification.php");
+}
+
+//$etape2 = (count($_POST) != 0) ? 'Visiteur' : 'Comptable';
+
+if (lireDonneeUrl('User') == "Visiteur") { // un Visiteur demande a� s'authentifier
+    // acquisition des donnees envoyees, ici login et mot de passe
+    ?>
+  	<div id="cadreAccueil">
+  		<div id="cadreAccueilHautGauche">
+  			<p><?php afficherAlertes($idConnexion); ?></p>
+  		</div>
+  		<div id="cadreAccueilBasGauche">
+  			<p><?php  ?></p>
+  		</div>
+  		<div id="cadreAccueilDroite">
+  	  		<p>	</p>
+  		</div>
+  	</div>
+  </div>  
+  <input type="email">
+	<?php        
+
+
+}
+elseif (lireDonneeUrl('User') == "Comptable") { // un Visiteur demande a� s'authentifier
+    // acquisition des donnees envoyees, ici login et mot de passe
+
+}
+else {
+    echo("\n"."Condition else"."\n");
+}
+
+require($repInclude . "_fin.inc.php");
+?>

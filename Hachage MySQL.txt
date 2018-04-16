@@ -1,0 +1,3 @@
+pour haché les password de la base de donnée on peut faire :
+	- une requète MySQL avec md5('xxx')
+	- un script PHP

@@ -1,0 +1,25 @@
+@charset "ISO-8859-1";
+head
+{
+    color: orange;
+    text-align: center;
+    font-family: sans-serif;
+}
+p
+{
+    color: darkgrey;
+}
+.
+.indentation
+{
+    margin-left: 20px;
+}
+h2, h3
+{
+    color: darkgreen;
+    font-family: sans-serif;
+}
+footer
+{
+	color: red;
+}

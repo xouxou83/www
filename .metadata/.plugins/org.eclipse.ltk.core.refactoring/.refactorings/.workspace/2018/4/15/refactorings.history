@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Delete 6 resources" deleteContents="false" description="Delete 6 resources" element1="/02-ApplicationFrais" element2="/GSB_Appli" element3="/GSB-New-App" element4="/gsbMVC" element5="/Mon_site_web" element6="/Servers" flags="7" id="org.eclipse.ltk.core.refactoring.delete.resources" resources="6" stamp="1523784870135"/>
+</session>

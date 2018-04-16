@@ -1,0 +1,12 @@
+Ajouter un Certificat SSL a son site web
+
+Pour une connexion SSL publique il faut faire une demande à un organisme de certification.
+Pour une connexion SSL privée un certificat auto-singé suffit.
+
+Dans l'invite de commANDe :
+
+- On va dans les dossier wamp pour configurer :
+	cd c:\wamp\bin\apache\apache2.4.27\bin
+- On créer une clé privée RSA (avec cryptage AES) :
+	openssl genrsa -aes256 -out clef.key 2048
+- 

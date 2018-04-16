@@ -1,0 +1,21 @@
+<?php
+
+$includePath = "./Include/";
+require $in'';
+
+?>
+		<h2>Bienvenue sur le Porte-Foliode Rémi RAZE</h2>
+		<p>Etudiant en BTS SIO option SISR et passionné par le monde de 
+		   possibilitées qu'offre les nouvelles technologie dont 
+		   l'informatique.
+		   <br>
+		   Mon objectif est de participer à la sécurisation des réseaux,
+		   et protéger données et les personnes qui utilisent ce moyen
+		   de communication.
+		   </p>
+	</body>
+	<footer>
+		<p>Pour tout renseignement veuillez contacter l'administrateur
+		remi.raze83@gmail.com</p>
+	</footer>
+</html>

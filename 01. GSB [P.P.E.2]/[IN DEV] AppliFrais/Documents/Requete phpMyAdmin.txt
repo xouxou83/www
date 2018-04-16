@@ -1,0 +1,39 @@
+
+
+//=> Ajoute des nouveaux éléments dans ligneFraisForfait <=// 
+	INSERT INTO `lignefraisforfait` (`idVisiteur`, `mois`, `idFraisForfait`, `quantite`) VALUES ('a17', '201803', 'KM', '2'), ('a17', '201803', 'ETP', '20');
+
+//=> Fonction... <=// 
+
+
+//=> Fonction... <=// 
+
+
+//=> Fonction... <=// 
+
+
+//=> Fonction... <=// 
+
+
+//=> Fonction... <=// 
+
+
+//=> Fonction... <=// 
+
+
+//=> Fonction... <=// 
+
+
+//=> Fonction... <=// 
+
+
+//=> Fonction... <=// 
+
+
+//=> Fonction... <=// 
+
+
+//=> Fonction... <=// 
+
+
+//=> Fonction... <=// 

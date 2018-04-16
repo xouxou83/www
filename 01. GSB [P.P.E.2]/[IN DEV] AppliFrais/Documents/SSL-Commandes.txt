@@ -1,0 +1,67 @@
+Microsoft Windows [version 10.0.16299.192]
+(c) 2017 Microsoft Corporation. Tous droits réservés.
+
+C:\Users\xouxo>cd c:\wamp64\bin\apache\apache2.2.11\bin
+Le chemin d’accès spécifié est introuvable.
+
+C:\Users\xouxo>cd c:\wamp64\bin\apache\apache2.4.27\bin
+
+c:\wamp64\bin\apache\apache2.4.27\bin>openssl genrsa -aes256 -out clef.key 2048
+Generating RSA private key, 2048 bit long modulus
+......................+++
+................................................................................+++
+e is 65537 (0x010001)
+Enter pass phrase for clef.key:
+Verifying - Enter pass phrase for clef.key:
+
+c:\wamp64\bin\apache\apache2.4.27\bin>openssl rsa -in clef.key -out neoflow.key
+Enter pass phrase for clef.key:
+writing RSA key
+
+c:\wamp64\bin\apache\apache2.4.27\bin>openssl rsa -in clef.key -out localhost.key
+Enter pass phrase for clef.key:
+writing RSA key
+
+c:\wamp64\bin\apache\apache2.4.27\bin>openssl req -new -x509 -nodes -sha1 -key localhost.key -out localhost.crt -days 365 -config C:\wamp\bin\apache\apache2.2.11\conf\openssl.cnf
+req: Cannot open input file C:\wamp\bin\apache\apache2.2.11\conf\openssl.cnf, No such file or directory
+req: Use -help for summary.
+
+c:\wamp64\bin\apache\apache2.4.27\bin>openssl req -new -x509 -nodes -sha1 -key localhost.key -out localhost.crt -days 365 -config C:\wamp\bin\apache\apache2.4.27\conf\openssl.cnf
+req: Cannot open input file C:\wamp\bin\apache\apache2.4.27\conf\openssl.cnf, No such file or directory
+req: Use -help for summary.
+
+c:\wamp64\bin\apache\apache2.4.27\bin>openssl req -new -x509 -nodes -sha1 -key localhost.key -out localhost.crt -days 365 -config C:\wamp64\bin\apache\apache2.4.27\conf\openssl.cnf
+You are about to be asked to enter information that will be incorporated
+into your certificate request.
+What you are about to enter is what is called a Distinguished Name or a DN.
+There are quite a few fields but you can leave some blank
+For some fields there will be a default value,
+If you enter '.', the field will be left blank.
+-----
+Country Name (2 letter code) [AU]:FR
+State or Province Name (full name) [Some-State]:Provence Alpes Cotes D'Azur
+Locality Name (eg, city) []:TOULON
+Organization Name (eg, company) [Internet Widgits Pty Ltd]:Firelan
+Organizational Unit Name (eg, section) []:WEB
+Common Name (e.g. server FQDN or YOUR name) []:RAZE Remi
+Email Address []:remi.raze83@gmail.com
+
+c:\wamp64\bin\apache\apache2.4.27\bin>C:\wamp\bin\apache\apache2.4.47\conf
+Le chemin d’accès spécifié est introuvable.
+
+c:\wamp64\bin\apache\apache2.4.27\bin>C:\wamp\bin\apache\apache2.4.27\conf
+Le chemin d’accès spécifié est introuvable.
+
+c:\wamp64\bin\apache\apache2.4.27\bin>C:\wamp64\bin\apache\apache2.4.27\conf
+'C:\wamp64\bin\apache\apache2.4.27\conf' n’est pas reconnu en tant que commANDe interne
+ou externe, un programme exécutable ou un fichier de commANDes.
+
+c:\wamp64\bin\apache\apache2.4.27\bin>cd C:\wamp64\bin\apache\apache2.4.27\conf
+
+C:\wamp64\bin\apache\apache2.4.27\conf> nano C:\wamp64\bin\apache\apache2.4.27\conf\extra\httpd-ssl.conf
+'nano' n’est pas reconnu en tant que commANDe interne
+ou externe, un programme exécutable ou un fichier de commANDes.
+
+C:\wamp64\bin\apache\apache2.4.27\conf>C:\wamp64\bin\apache\apache2.4.27\conf\extra\httpd-ssl.conf
+
+C:\wamp64\bin\apache\apache2.4.27\conf>

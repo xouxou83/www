@@ -1,0 +1,22 @@
+<?php
+$repInclude = './include/';
+require($repInclude . "_init.inc.php");
+
+$etape = (count($_POST) != 0) ? 'validerConnexion' : 'demanderConnexion';
+
+if ($etape == 'validerConnexion') {
+    $login = lireDonneePost("txtLogin");
+    $password = lireDonneePost("txtMdp");
+    $lgUser = verifierInfosConnexion($idConnexion, $login, $password);
+    
+    if ( is_array($lgUser) ) {
+        affecterInfoConnecte($lgUser["id"], $lgUser["login"]);
+    }
+    else {
+        ajouterErreur($tabErreurs, "Pseudo et/ou mot de passe");
+    }
+}
+
+if ( $etape == "validerConnexion" && nbErreurs($tabErreurs) = 0) {
+    header("Location:Acceuil.php");
+}

@@ -1,0 +1,49 @@
+<?php
+/*
+ * Librairie des fonctions pour la gestion de la base de donnée (PDO)
+ * @ By x@ux@u
+ */
+   
+
+/*
+ * Fonction de connexion au serveur BD en PDO, afin de facilité la compatibilitee 
+ */
+
+function connecterServeurBD()   {
+    try {
+    $bdd = new PDO('mysql:host=localhost;dbname=gsb-applifrais-visiteur;charset=utf8', 'root', '');
+    }
+    catch (Exception $e) {
+        die('Erreur : ' . $e -> getMessage());
+    }
+    return $bdd;
+}
+function connecterServeurBDSave()   {
+    try {
+        $bddSave = new PDO('mysql:host=localhost;dbname=centre-de-sauvegarde-gsb;charset=utf8', 'root', '');
+    }
+    catch (Exception $d) {
+        die('Erreur : ' . $d -> getMessage());
+    }
+    return $bddSave;
+}
+    $reponse 
+    $requete = "SELECT * from visiteur "
+    $reponse = $bdd -> query($requete);
+    $MdpSave = array();
+    while ($donnees = $reponse -> fetch())  {   // Prend une par une les données de la BD
+        $id = $donnees['id'];
+        $nom = $donnees['nom'];
+        $prenom = $donnees['prenom'];
+        $login = $donnees['login'];
+        $mdp = $donnees['mdp'];
+        $adresse = $donnees['adresse'];
+        $cp = $donnees['cp'];
+        $ville = $donnees['ville'];
+        $dateEmbauche = $donnees['$dateEmbauche'];
+       
+        $bddSave = exec('INSERT INTO Centre-de-sauvegarde(id, nom, prenom, login, mdp, adresse, cp, ville, dateEmbauche)
+             VALLUES('.$id."','".$nom."','".$prenom."','".$login."','".$mdp."','".$adresse."','".$cp."','".$ville."','".$dateEmbauche."')'");
+     //   $MdpSave[$id] = $mdp;                   // Copie les mots de passes 
+    }
+    $reponse -> closeCursor();                  // Termine la requete

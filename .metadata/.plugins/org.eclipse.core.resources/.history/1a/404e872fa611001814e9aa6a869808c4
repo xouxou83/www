@@ -1,0 +1,53 @@
+<?php
+/*
+ * Librairie des fonctions pour la gestion de la base de donnée (PDO)
+ * @ By x@ux@u
+ */
+   
+
+/*
+ * Fonction de connexion au serveur BD en PDO, afin de facilité la compatibilitee 
+ */
+
+//function connecterServeurBD()   {
+    try {
+    $bdd = new PDO('mysql:host=localhost;dbname=gsb-applifrais-visiteur;charset=utf8', 'root', '');
+    }
+    catch (Exception $e) {
+        die('Erreur : ' . $e -> getMessage());
+    }
+//    return $bdd;
+//}
+
+    $requete = "SELECT * from visiteur "
+    $reponse = $bdd -> query($requete);
+    $MdpSave = array();
+    while ($donnees = $reponse -> fetch())  {   // Prend une par une les données de la BD
+        
+    }
+    $reponse -> closeCursor();  // Termine la requete
+
+
+/*
+ * Fonction de recupération de données a partir du serveur BD
+ */
+
+//function requeteBD($requete)    {
+    $reponse = $bdd -> query($requete);
+    while ($donnees = $reponse -> fetch())  {
+        
+    }
+//    return ;
+//}
+
+    $array = array();
+    for ($x = 1; $x <= 100000; $x++)
+    {
+        $id = $donnees['id']
+        $array[] = $x;
+    }
+
+
+
+
+?>

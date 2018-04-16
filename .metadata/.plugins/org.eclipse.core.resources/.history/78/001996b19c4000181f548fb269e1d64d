@@ -1,0 +1,59 @@
+<?php
+/*
+ * Page pour le choix du v�hicule utilis� pour les trajets professionnels des visiteurs
+ * @package GSB-AppliFrais
+ * @author x@ux@u   (basé sur )
+ * @projet Gsb-AppliFrais
+ * @todo RAS
+ */
+
+
+$repInclude = './Include/';
+$repIncludeVisiteur = './Include/Visiteur/';
+
+require( $repInclude . '_initialisation.inc.php');
+
+/*
+ * Partie des frais kilometriques
+ */
+
+$typeVehicule = array('auto','moto <50');
+
+
+$puissance = array(0 => "Sélectionnez la puissance", 3 => "3 CV et Moins", 4 => "4 CV", 5 => "5 CV", 6 => "6 CV", 7 => "7 CV et plus");
+$distance = array(0 => "Sélectionnez la distance", 1 => "Moins de 5 000 Km", 2 => "De 5 001 à 20 000 Km", 3 => "Plus de 20 000 Km");
+
+$colone1 = array(3 => 0.41*$d, 4 => 0.493*$d, 5 => 0.543*$d, 6 => 0.568*$d, 7 => 0.595*$d);
+$colone2 = array(3 => '(0.245*$d)+824', 4 => '(0.277*$d)+1082', 5 => (0.305*$d)+1188, 6 => (0.32*$d)+1244, 7 => (0.337.$d)+1288);
+$colone3 = array(3 => 0.286*$d, 4 => 0.332*$d, 5 => 0.364*$d, 6 => 0.382*$d, 7 => 0.401*$d);
+
+sort($ListeMarquesVoiture, SORT_NATURAL);
+
+?>
+<form action="" method="POST">
+	<h2>Selectionnez votre véhicule :</h2>
+	<p>
+		<label for="Marquevoiture">Marque :</label>
+    		<SELECT name="Marquevoiture">
+    		
+<?php 
+$selection = '';
+foreach ($ListeMarquesVoiture as $marque)	{
+	if($marque == $ListeMarquesVoiture)	{
+		$selection = 'selected = "selected"';
+	}
+	// Affichage de la ligne
+	echo "\t",'<option value="', $marque ,'"', $selection ,'>', $marque ,'</option>',"\n";
+	// Remise a zéro de $Selected
+	$selection='';
+}
+echo '</SELECT>',"\n";
+
+if ($marque != "")	{
+	
+}
+?>
+
+
+</p>
+</form>

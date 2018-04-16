@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<section name="CallHierarchySearchScope">
+	</section>
+	<section name="PHPDLTKSearchPage">
+		<item value="2" key="HISTORY_SIZE"/>
+		<item value="false" key="CASE_SENSITIVE"/>
+		<section name="HISTORY0">
+			<item value="false" key="isCaseSensitive"/>
+			<item value="" key="modelElement"/>
+			<item value="0" key="scope"/>
+			<item value="smenu" key="pattern"/>
+			<item value="1" key="limitTo"/>
+			<item value="false" key="includeInterpreterEnvironment"/>
+			<item value="0" key="searchFor"/>
+			<list key="workingSets">
+			</list>
+		</section>
+		<section name="HISTORY1">
+			<item value="false" key="isCaseSensitive"/>
+			<item value="" key="modelElement"/>
+			<item value="0" key="scope"/>
+			<item value="$idFraisForfait" key="pattern"/>
+			<item value="1" key="limitTo"/>
+			<item value="false" key="includeInterpreterEnvironment"/>
+			<item value="0" key="searchFor"/>
+			<list key="workingSets">
+			</list>
+		</section>
+	</section>
+</section>

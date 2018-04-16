@@ -1,0 +1,60 @@
+<?php
+/**
+ * Page d'accueil de l'application web AppliFrais
+ * @package default
+ * @todo  RAS
+ */
+$repInclude = './Include/';
+$repIncludeVisiteur = './Include/Visiteur/';
+$repIncludeComptable = './Include/Comptable/';
+require($repInclude . "_initialisation.inc.php");
+
+/*
+ * La page est inaccessible si le visiteur ou le comptable n'est pas connecté
+ */
+if ( !estVisiteurConnecte() || !estComptableConnecte())  {
+    header("Location: identification.php");
+}
+require($repInclude . "_entete.inc.html");
+?>            
+    	<!-- Division principale -->
+	<div id="contenu">
+    	<h2>Bienvenue sur l'intranet GSB</h2>
+	</div>
+<?php
+
+//$etape2 = (count($_POST) != 0) ? 'Visiteur' : 'Comptable';
+
+if (lireDonneePost('Visiteur')) { // un Visiteur demande à s'authentifier
+    // acquisition des données envoyées, ici login et mot de passe
+
+   require($repIncludeVisiteur . "_sommaireVisiteur.inc.php");
+
+    ?>
+  	<div id="cadreAccueil">
+  		<div id="cadreAccueilHautGauche">
+  			<p><?php afficherAlertes($idConnexion); ?></p>
+  		</div>
+  		<div id="cadreAccueilBasGauche">
+  			<p><?php  ?></p>
+  		</div>
+  		<div id="cadreAccueilDroite">
+  	  		<p>	</p>
+  		</div>
+  	</div>
+	<?php        
+
+}
+elseif (lireDonneePost('Comptable')) { // un Visiteur demande à s'authentifier
+    // acquisition des données envoyées, ici login et mot de passe
+
+    require($repIncludeComptable . "_sommaireComptable.inc.php");
+
+}
+else {
+    echo("\n"."Condition else"."\n");
+}
+require($repInclude . "_pied.inc.html");
+
+?>
+

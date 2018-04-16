@@ -1,0 +1,227 @@
+/* Styles des divisions principales de la page */
+body{
+    background-color: #77AADD;
+	background-image: url(imgs/FONDGLOBAL.jpg);
+	background-repeat: repeat-x;
+    margin:0% 0%;
+    padding : 0.6em;
+    font-family:"Trebuchet MS",Verdana,Geneva,Arial,Helvetica,sans-serif;
+    font-size:0.8em;
+}
+
+#menuGauche {
+	margin-top : 1%;
+	padding: 1%;
+	background-color: white;
+	color: rgb(0,85,227);
+	float: left;
+	width: 12%;
+}
+
+#infosUtil {
+	text-align: center;
+	display: inline;
+}
+
+#page {
+  	background-color: white;
+  	width : 65%;
+  	margin : auto ;
+  	border : 0.2em solid black;
+  	padding : 0.1em;	
+}
+
+#entete{
+  	background-color:rgb(72,198,236);
+	color : #980101;
+	border: solid 0.1em #980101;
+	height: 154px;
+	border-collapse: separate;
+}
+
+#logoGSB{
+	margin-left: 10%;
+}
+
+#titrePage{
+	text-align: center;
+	color: #008080;
+	border: groove 0.2em #980101;
+
+	border-collapse: collapse;
+	border-bottom-right-radius: 8pc;
+}
+
+#pied{
+ 	clear: both;
+	border: groove 0.2em #980101;
+	margin-left: 1%;
+	margin-right: 1%;
+	padding-left: 1%;
+	padding-right: 1%;
+	border-collapse: separate;
+}
+
+#FormIdentificationP{
+	margin-left: 5%;
+	margin-top: 5%;
+	margin-bottom: 5%;
+	text-align: center;
+}
+
+#connexionVisiteur{
+	width: 8%;
+	height: 6%;
+}
+
+#connexionComptable{
+	width: 8%;
+	height: 6%;
+}
+
+#FormIdentification{
+	display: inline;
+	align-content: center;
+	margin-top: 55%;
+	margin-left: 44.5%;
+}
+#contenu{
+	border: none;
+	padding-top: 20%;
+	padding: 2%;
+	background-color: white;
+	border-left:  groove 0.7em #980101;
+	margin-left: 5%;
+/* permet de fixer une hauteur mini sur les navigateurs modernes */
+ 	min-height:27%;
+/* pour obtenir le m�me effet sur IE, sachant que si le contenu d�passe, il
+"poussera" la hauteur en ne respectant pas la norme. On se joue de ses lacunes	*/
+
+}	
+#contenuH{
+	border: none;
+	padding: 2%;
+	background-color: white;
+	border-left:  groove 0.8em #980101;
+  	margin-top: 1.2%;
+	margin-left: 5%;
+/* permet de fixer une hauteur mini sur les navigateurs modernes */
+ 	min-height:27px;
+/* pour obtenir le m�me effet sur IE, sachant que si le contenu d�passe, il
+"poussera" la hauteur en ne respectant pas la norme. On se joue de ses lacunes
+*/
+  	height:35%;
+}
+/* Contenu intermed consultation des frais*/
+#contenuIntermed { 
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 14px;
+	font-weight: bold;
+	color: #1D2941;
+	text-decoration: none;
+	border : 1px solid #6988BE;
+	padding-left: 25px;
+	background-color: #E9F1FE;
+ 	height : 28px;
+	padding-right: 55.5em; 
+	
+/*	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 14px;
+	font-weight: bold;
+	color: #1D2941;
+	text-decoration: none;
+	border : 1px solid #6988BE;
+	padding-left: 25px;
+	background-color: #E9F1FE;
+  height : 28px;*/
+}
+
+/* pour retablir le mauvais effet sur les nav. modernes */
+html>body #contenu{
+  height: auto;
+  
+}
+
+/* style : appliquer  la balise ul d'identifiant menulist */
+ul#menuList{
+	margin-right: 40%;
+    list-style:none;
+    margin:0px;
+    padding:0px;
+    width:98%;
+    font-size: 1em;
+}
+
+/* style � appliquer aux elements de la balise ul d'identifiant menulist */
+ul#menuList li {
+    position:relative;
+    margin:0px;
+    padding:0px;
+}
+
+/* apparences des liens dans listes et sous-listes non num�rot�es */
+ul#menuList a {
+    color:rgb(0,85,227);
+    display:block;
+    text-decoration:none;
+    width:100%;
+}
+ul#menuList a:hover {
+    background: rgb(0,85,227);
+    color: white;
+}
+
+#entete #logoGSB {
+  float : left;
+  width : 238px;
+  height : 152px;
+}
+
+#entete h1 {
+  margin : 1%;
+  margin-left: 4%;
+  margin-top: 5%;
+  font-size : xx-large;
+  text-align: center;
+}
+
+#contenu pre {
+  width: 95%;
+  overflow : scroll;
+}
+#contenu h2 {
+  font-size : large;
+  text-align: left;
+  margin: 0;
+  margin-bottom: 0.5em;
+}
+
+.logoValidW3c {
+  display: inline;
+}
+#libValidW3c{
+  display : inline;
+  vertical-align:middle;
+}
+
+/* Style des formulaires */
+.corpsForm {
+  border : solid 0.1em #000;
+  border-bottom-width:1px;
+  margin-bottom : 0em;
+  width : 95%;
+}
+.piedForm {
+/*  border-bottom-width : 0.1em;
+  border-left-width : 0.1em;
+  border-right-width : 0.1em;
+  border-top-width : 0em;
+  border-style : solid;
+  border-color : #000;	*/
+  text-align:right ;
+  width : 95%;
+  margin-top:0em; 
+}
+form {
+  margin-bottom:1em;  
+}
